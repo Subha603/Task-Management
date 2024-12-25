@@ -91,7 +91,7 @@ The frontend files (HTML/CSS/JS) are included in the `templates` and `static` fo
 This app can be deployed using any hosting platform supporting Python Flask, such as AWS, Heroku, or Google Cloud.
 
 ## Demo Video
-Watch the full walkthrough of the application here: [YouTube Video](https://www.youtube.com/your-video-link)
+Watch the full walkthrough of the application here: [YouTube Video]()
 
 ## Contributing
 Contributions are welcome! If you find a bug or have a feature request, feel free to open an issue or submit a pull request.
