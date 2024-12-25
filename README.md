@@ -31,7 +31,7 @@ This is a simple and efficient **To-Do App** built using Python Flask, PostgreSQ
 # show Tasklist
 ![To-Do App Screenshot](./public/images/c.png)
 # update calendar
-![To-Do App Screenshot](./public/images/c.png)
+![To-Do App Screenshot](./public/images/e.png)
 
 
 ## Prerequisites
