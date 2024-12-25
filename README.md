@@ -39,7 +39,7 @@ This is a simple and efficient **To-Do App** built using Python Flask, PostgreSQ
 1. Python (>=3.8)
 2. PostgreSQL (installed and running)
 3. Google API credentials (for Google OAuth and Calendar integration)
-4. Node.js and npm (optional for managing frontend dependencies)
+
 
 ## Installation
 
@@ -87,8 +87,6 @@ The frontend files (HTML/CSS/JS) are included in the `templates` and `static` fo
 3. Add, edit, delete, or mark tasks as complete.
 4. Sync tasks with your Google Calendar using the provided button.
 
-## Deployment
-This app can be deployed using any hosting platform supporting Python Flask, such as AWS, Heroku, or Google Cloud.
 
 ## Demo Video
 Watch the full walkthrough of the application here: [YouTube Video]()
