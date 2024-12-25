@@ -20,7 +20,7 @@ with app.app_context():
 
 # Google OAuth2 configuration
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-CLIENT_SECRETS_FILE = '' 
+CLIENT_SECRETS_FILE = 'client_secret.json' 
 
 
 
