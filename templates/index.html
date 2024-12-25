@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App with Google Calendar</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% if not authenticated %}
+    <script>
+      window.location.href = "/login";
+    </script>
+    {% else %}
+    <nav class="navbar">
+      <div class="nav-brand"><i class="fas fa-tasks"></i> Todo App</div>
+      <div class="nav-user">
+        <div class="nav-buttons">
+          <button class="btn btn-create" id="create-todo-btn">
+            <i class="fas fa-plus"></i> Create Todo
+          </button>
+          <button class="btn btn-logout" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div
+        id="error-message"
+        class="alert alert-danger"
+        style="display: none"
+      ></div>
+      <div id="loading" style="display: none">
+        <i class="fas fa-circle-notch fa-spin"></i> Loading...
+      </div>
+
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <form id="todo-form">
+        <div class="form-header">
+          <h2 class="form-title">Create New Todo</h2>
+          <button type="button" class="close-btn" id="close-form">
+            &times;
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="title"><i class="fas fa-heading"></i> Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            placeholder="Enter todo title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description"
+            ><i class="fas fa-align-left"></i> Description</label
+          >
+          <textarea
+            id="description"
+            name="description"
+            rows="3"
+            placeholder="Enter todo description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="due-date"
+            ><i class="fas fa-calendar-alt"></i> Due Date</label
+          >
+          <input type="datetime-local" id="due-date" name="due-date" required />
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-plus"></i> Add Todo
+        </button>
+      </form>
+
+      <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const createTodoBtn = document.getElementById("create-todo-btn");
+        const todoForm = document.getElementById("todo-form");
+        const logoutBtn = document.getElementById("logout-btn");
+        const modalOverlay = document.getElementById("modal-overlay");
+        const closeFormBtn = document.getElementById("close-form");
+
+        function showForm() {
+          todoForm.style.display = "block";
+          modalOverlay.style.display = "block";
+          document.body.style.overflow = "hidden";
+        }
+
+        function hideForm() {
+          todoForm.style.display = "none";
+          modalOverlay.style.display = "none";
+          document.body.style.overflow = "auto";
+          todoForm.reset();
+        }
+
+        createTodoBtn.addEventListener("click", showForm);
+        closeFormBtn.addEventListener("click", hideForm);
+        modalOverlay.addEventListener("click", hideForm);
+
+        logoutBtn.addEventListener("click", function () {
+          if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "/logout";
+          }
+        });
+
+        // Example of adding a todo item dynamically
+        function createTodoItem(todo) {
+          const li = document.createElement("li");
+          li.className = "todo-item";
+          li.innerHTML = `
+                    <div class="todo-content">
+                        <h3 class="todo-title">${todo.title}</h3>
+                        <p class="todo-description">${todo.description}</p>
+                        <div class="todo-due-date">
+                            <i class="fas fa-calendar"></i>
+                            ${new Date(todo.dueDate).toLocaleString()}
+                        </div>
+                    </div>
+                    <div class="todo-actions">
+                        <button class="action-btn complete-btn" title="Mark as complete">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="action-btn edit-btn" title="Edit todo">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn delete-btn" title="Delete todo">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+          return li;
+        }
+      });
+    </script>
+    {% endif %}
+
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

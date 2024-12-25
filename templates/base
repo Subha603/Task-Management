@@ -1,0 +1,27 @@
+{
+
+    "web": {
+
+        "client_id": "your-client-id.apps.googleusercontent.com",
+
+        "project_id": "dulcet-aileron-308017",
+
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+
+        "token_uri": "https://oauth2.googleapis.com/token",
+
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+
+        "client_secret": "your-client-secret",
+
+        "redirect_uris": ["http://localhost:5000/oauth2callback"]
+
+    }
+
+}
+
+
+your-client-id
+991828746343-dvt4gjq01377l6h4jqea8bt110adgri5.apps.googleusercontent.com
+
+ALTER TABLE todos ALTER COLUMN user_id TYPE VARCHAR(500);
