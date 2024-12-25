@@ -67,9 +67,9 @@ This is a simple and efficient **To-Do App** built using Python Flask, PostgreSQ
     ```
     Update your database configuration in the `config.py` file.
 
-5. Run the Flask application:
+5. Run the  application:
     ```bash
-    flask run
+    python app.py
     ```
 
 ### Frontend Setup
